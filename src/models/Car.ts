@@ -1,21 +1,21 @@
 export default class Car {
-    private readonly _reqNumber: string;
+    private readonly _regNumber: string;
     private _model: string;
     private _company: string;
     private _engine: number;
     private _color: string;
 
 
-    constructor(reqNumber: string, model: string, company: string, engine: number, color: string) {
-        this._reqNumber = reqNumber;
+    constructor(regNumber: string, model: string, company: string, engine: number, color: string) {
+        this._regNumber = regNumber;
         this._model = model;
         this._company = company;
         this._engine = engine;
         this._color = color;
     }
 
-    get reqNumber(): string {
-        return this._reqNumber;
+    get regNumber(): string {
+        return this._regNumber;
     }
 
     get model(): string {

@@ -7,9 +7,10 @@
   },
   "dependencies": {
     "@types/node": "^22.10.2",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "express-validator": "^7.2.0"
   },
-  "name": "08_garage_20_12_2024",
+  "name": "09_garage",
   "version": "1.0.0",
   "main": "src/app.ts",
   "scripts": {

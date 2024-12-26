@@ -1,6 +1,6 @@
 import GarageService from "../services/GarageService";
 import Car from "../models/Car";
-import {eventEmitter} from "../events/eventEmitter";
+
 
 export default class GarageController {
     private garageService: GarageService;
@@ -9,17 +9,32 @@ export default class GarageController {
         this.garageService = garageService;
     }
 
-    async addCar(carDto:unknown){
-        return await this.garageService.addCar(carDto as Car);
+     addCar(carDto:unknown){
+        return  this.garageService.addCar(carDto as Car);
     }
 
-    async deleteCar(carDto:unknown){
-        const victim = this.garageService.deleteCar((carDto as { reqNumber: string; }).reqNumber);
-        if(victim) {
-            eventEmitter.emit('Car is deleted', victim.model);
-        }else {
-            console.log('Car not found');
-        }
-        return victim;
+
+     removeCar(regNumber: string) {
+        return this.garageService.removeCar(regNumber);
+    }
+
+    findCarByRegNumber(regNumber: string):Car|null {
+        return this.garageService.findCarByRegNumber(regNumber);
+    }
+
+    findCarByEngine(min: number, max: number):Car[] {
+        return this.garageService.findCarByEngine(min, max);
+    }
+
+    findCarByModel(model: string):Car[] | null {
+        return this.garageService.findCarsByModel(model);
+    }
+
+    findCarByColor(color: string):Car[] | null {
+        return this.garageService.findCarByColor(color);
+    }
+
+    findCarByCompany(company: string):Car[] | null {
+        return this.garageService.findCarByCompany(company);
     }
 }

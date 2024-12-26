@@ -2,6 +2,16 @@ import Car from "../models/Car";
 
 export default interface GarageService {
     addCar(car: Car): boolean;
-    deleteCar(reqNumber: string): Car | null;
-    findCarByRegNumber(reqNumber: string): Car| null;
+
+    removeCar(regNumber: string): Car | null;
+
+    findCarByRegNumber(regNumber: string): Car | null ;
+
+    findCarByEngine(min: number, max: number): Car[];
+
+    findCarsByModel(model: string): Car[] | null;
+
+    findCarByColor(color: string): Car[] | null;
+
+    findCarByCompany(company: string): Car[]  | null;
 }
